@@ -1,5 +1,6 @@
 import random
 
+
 #Player class
 #also might need a function to check if the player has letters for a word
 class Player:
@@ -54,3 +55,11 @@ def main():
     
 if __name__ == "__main__":
     main()
+    
+# Starting the game and the game setup
+
+print("WELCOME TO MY WORDSMITH GAME")
+total_rounds = 10
+
+score_1 = 0
+score_2 = 0
