@@ -45,7 +45,10 @@ class Game:
     def setup_players(self):
         pass
     def play_turn(self):
-        pass
+        while round <= 10:
+            round += 1
+        else:
+            pass
     def play(self):
         pass
     
