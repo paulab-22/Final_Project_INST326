@@ -2,6 +2,7 @@ import random
 
 import pandas as pd
 
+
 #Player class
 #also might need a function to check if the player has letters for a word
 class Player:
@@ -49,7 +50,10 @@ class Game:
     def setup_players(self):
         pass
     def play_turn(self):
-        pass
+            while round <= 10:
+                round += 1
+            else:
+                pass
     def play(self):
         pass
 
@@ -68,3 +72,11 @@ def main():
     
 if __name__ == "__main__":
     main()
+    
+# Starting the game and the game setup
+
+print("WELCOME TO MY WORDSMITH GAME")
+total_rounds = 10
+
+score_1 = 0
+score_2 = 0
