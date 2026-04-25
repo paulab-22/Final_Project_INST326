@@ -207,3 +207,15 @@ for number in rounds
     
     # Player 1 turn
     input("\n" + name_1 + ", press Enter to Play!")
+
+
+# Calculate who won 
+if score_1 > score_2:
+    print(name_1, "WINS!!")
+    
+if score_2 > score_1:
+    print(name_2, "WINS!!")
+
+if score_1 == score_2:
+    print("IT'S A TIE!")
+
