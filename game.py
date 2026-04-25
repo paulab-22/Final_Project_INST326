@@ -197,3 +197,13 @@ total_rounds = 10
 
 score_1 = 0
 score_2 = 0
+
+# creating rounds 
+
+for number in rounds
+    rounds = 10
+    
+    print("ROUND START")
+    
+    # Player 1 turn
+    input("\n" + name_1 + ", press Enter to Play!")
