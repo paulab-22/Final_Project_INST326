@@ -45,10 +45,18 @@ class Die:
     
 class ConsonantDie(Die):
     def __init__(self):
+        """Initializes a ConsonantDie object. Inherits from the Die class.
+        Author: 
+            Buitrago.
+        """
         super().__init__(["B","C","D","F","G","H","J","K","L","M","N","P","Q","R","S","T","V","W","X","Y","Z"])
 
 class VowelDie(Die):
     def __init__(self):
+        """Initializes a VowelDie object. Inherits from the Die class.
+        Author:
+            Buitrago.
+        """
         super().__init__(["A", "E", "I", "O", "U"])
         
 
@@ -134,10 +142,24 @@ class Game:
 
 class WordManager:
     def __init__(self):
+        """Initializes a WordManager object and word bank attribute.
+        Returns:
+            An instance of a WordManager object. 
+        Author:
+            Buitrago.
+        """
         self.bank = pd.read_csv('word_bank.csv')
         self.bank = self.bank[self.bank['word'].str.len() >= 3]
 
     def isInWordBank(self, word):
+        """Checks to see if a player's word is in the word bank.
+        Args: 
+            word (str): the word to be checked.
+        Returns:
+            True if the word is in the word bank, False otherwise. 
+        Author:
+            Buitrago.
+        """
         words = self.bank[self.bank['word'].str.upper() == word.upper()]
         return len(words) > 0
     
