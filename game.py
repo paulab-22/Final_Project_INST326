@@ -1,6 +1,7 @@
 import random
 
 import pandas as pd
+from inputimeout import inputimeout, TimeoutOccurred
 
 
 #Player class
@@ -108,7 +109,7 @@ class ScoringSystem:
         base_score = 0
         for letter in word:
             base_score += self.letter_values.get(letter, 0)
-        mult = self.get_length_multiplier(word)
+        mult = self.length_multiplier(word)
         return int(base_score * mult)
     
         
@@ -151,7 +152,7 @@ class WordManager:
         self.bank = pd.read_csv('word_bank.csv')
         self.bank = self.bank[self.bank['word'].str.len() >= 3]
 
-    def isInWordBank(self, word):
+    def is_in_word_bank(self, word):
         """Checks to see if a player's word is in the word bank.
         Args: 
             word (str): the word to be checked.
@@ -176,11 +177,9 @@ class WordManager:
         
         if not self.is_in_word_bank(word):
             return False
-        if not player.has_letters_for(word):
+        if not player.has_letters(word):
             return False
         return True
-
-    
             
         
 def main():
@@ -190,6 +189,7 @@ def main():
 if __name__ == "__main__":
     main()
     
+
 # Starting the game and the game setup
 
 print("WELCOME TO MY WORDSMITH GAME")
@@ -208,14 +208,21 @@ for number in rounds
     # Player 1 turn
     input("\n" + name_1 + ", press Enter to Play!")
 
+# Timer function
 
-# Calculate who won 
-if score_1 > score_2:
-    print(name_1, "WINS!!")
-    
-if score_2 > score_1:
-    print(name_2, "WINS!!")
 
-if score_1 == score_2:
-    print("IT'S A TIE!")
 
+    try:
+        answer = inputimeout(prompt="Enter your choice: ", timeout=5)
+        print("You answered:", answer)
+    except TimeoutOccurred:
+        print("Time is up!")
+        
+class game:
+    def __init__(self):
+        self.players()
+        self.score = 0
+        self.hand = []
+    def play_turn(self,player):
+        player1_name=input("player 1 enter name")
+        player2_name=input("player 2 enter name")
