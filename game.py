@@ -190,17 +190,72 @@ if __name__ == "__main__":
     main()
     
 
-# Starting the game and the game setup
+# Starting the game
+
 
 print("WELCOME TO MY WORDSMITH GAME")
+
 total_rounds = 10
 
-score_1 = 0
-score_2 = 0
+# creating players
+name_1 = input("Enter Player 1 name: ")
+name_2 = input("Enter Player 2 name: ")
 
+player1 = Player(name_1)
+player2 = Player(name_2)
+ 
+# Score with die
+scorer = ScoringSystem()
+word_manager = WordManager()
+
+vowel_die = VowelDie()
+consonant_die = ConsonantDie()
+
+# rounds
+for round_num in range(1, total_rounds + 1):
+    print(f"\n-- ROUND --{round_num} ")
+
+# give letters to players
+    player1.hand = []
+    player2.hand = []
+
+    # player 1s turn
+    input("\n" + player1.name + ", press Enter to play")
+    print("Your letters:", player1.hand)
+    try:
+        word1 = inputimeout(prompt="Enter your word: ")
+        if word_manager.submit_word(player1, word1):
+            score = scorer.calculate_word(word1)
+            player1.score += score
+            print("Correct! Your score is:", score)
+        else:
+            print("Wrong word")
+    except TimeoutOccurred:
+        print("You are out of time")
+    # player 2s turn
+    input("\n" + player2.name + ", press Enter to Play")
+    print("Your letters are:", player2.hand)
+
+    try:
+        word2 = inputimeout(prompt="Enter your word:")
+        if word_manager.submit_word(player2, word2):
+            score = scorer.calculate_word(word2)
+            player2.score += score
+            print("Correct! Score:", score)
+        else:
+            print("Invalid word.")
+    except TimeoutOccurred:
+        print("You are out of time")
+        """ Tells player wether or not their word is correct 
+        and times the player in their round.
+
+        
+        Author:
+            Goodwin
+        """
 # creating rounds 
 
-for number in rounds
+for number in rounds:
     rounds = 10
     
     print("ROUND START")
