@@ -235,8 +235,10 @@ for round_num in range(1, total_rounds + 1):
     print(f"\n-- ROUND --{round_num} ")
 
 # give letters to players
-    player1.hand = []
-    player2.hand = []
+    player1.add_letter(vowel_die.roll())
+    player1.add_letter(consonant_die.roll())
+    player2.add_letter(vowel_die.roll())
+    player2.add_letter(consonant_die.roll())
 
     # player 1s turn
     input("\n" + player1.name + ", press Enter to play")
