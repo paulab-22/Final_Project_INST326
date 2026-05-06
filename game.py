@@ -57,7 +57,15 @@ class Die:
     def __init__(self, sides):
         self.sides = sides
     def roll(self):
-        pass
+        """Returns a random side of the dice roll
+        Args:
+            sides (str): Sides of the die
+        Returns:
+            a random consonant or vowel depending on the die
+        Author:
+            Ou
+        """
+        return random.choice(self.sides)
     
 class ConsonantDie(Die):
     def __init__(self):
