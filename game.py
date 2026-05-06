@@ -223,6 +223,9 @@ word_manager = WordManager()
 vowel_die = VowelDie()
 consonant_die = ConsonantDie()
 
+for _ in range(5):
+    player1.add_letter(random.choice([vowel_die.roll(), consonant_die.roll()]))
+    player2.add_letter(random.choice([vowel_die.roll(), consonant_die.roll()]))
 # rounds
 for round_num in range(1, total_rounds + 1):
     print(f"\n-- ROUND --{round_num} ")
@@ -237,11 +240,11 @@ for round_num in range(1, total_rounds + 1):
     input("\n" + player1.name + ", press Enter to play")
     print("Your letters:", player1.hand)
     try:
-        word1 = inputimeout(prompt="Enter your word: ")
+        word1 = inputimeout(prompt="Enter your word: ", timeout=10)
         if word_manager.submit_word(player1, word1):
             score = scorer.calculate_word(word1)
             player1.score += score
-            print("Correct! Your score is:", score, timeout=10)
+            print("Correct! Your score is:", score)
         else:
             print("Wrong word")
     except TimeoutOccurred:
