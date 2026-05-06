@@ -248,7 +248,7 @@ for round_num in range(1, total_rounds + 1):
         if word_manager.submit_word(player1, word1):
             score = scorer.calculate_word(word1)
             player1.score += score
-            print("Correct! Your score is:", score)
+            print("Correct! Your score is:", score, timeout=10)
         else:
             print("Wrong word")
     except TimeoutOccurred:
@@ -258,7 +258,7 @@ for round_num in range(1, total_rounds + 1):
     print("Your letters are:", player2.hand)
 
     try:
-        word2 = inputimeout(prompt="Enter your word:")
+        word2 = inputimeout(prompt="Enter your word:", timeout=10)
         if word_manager.submit_word(player2, word2):
             score = scorer.calculate_word(word2)
             player2.score += score
@@ -274,31 +274,3 @@ for round_num in range(1, total_rounds + 1):
         Author:
             Goodwin
         """
-# creating rounds 
-
-for number in rounds:
-    rounds = 10
-    
-    print("ROUND START")
-    
-    # Player 1 turn
-    input("\n" + name_1 + ", press Enter to Play!")
-
-# Timer function
-
-
-
-    try:
-        answer = inputimeout(prompt="Enter your choice: ", timeout=5)
-        print("You answered:", answer)
-    except TimeoutOccurred:
-        print("Time is up!")
-        
-class game:
-    def __init__(self):
-        self.players()
-        self.score = 0
-        self.hand = []
-    def play_turn(self,player):
-        player1_name=input("player 1 enter name")
-        player2_name=input("player 2 enter name")
