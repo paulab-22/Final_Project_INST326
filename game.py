@@ -246,6 +246,9 @@ for round_num in range(1, total_rounds + 1):
             print("Wrong word")
     except TimeoutOccurred:
         print("You are out of time")
+    print("\nScores:")
+    print(player1.name + ":", player1.score)
+    print(player2.name + ":", player2.score)
     # player 2s turn
     input("\n" + player2.name + ", press Enter to Play")
     print("Your letters are:", player2.hand)
@@ -260,10 +263,14 @@ for round_num in range(1, total_rounds + 1):
             print("Invalid word.")
     except TimeoutOccurred:
         print("You are out of time")
+    
         """ Tells player wether or not their word is correct 
         and times the player in their round.
-
+    
         
         Author:
             Goodwin
         """
+    print("\nScores:")
+    print(player1.name + ":", player1.score)
+    print(player2.name + ":", player2.score)
