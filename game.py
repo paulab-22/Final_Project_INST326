@@ -41,8 +41,16 @@ class Player:
                 j += 1
             i += 1
         return j == len(temp_word)
-    
-
+    def remove_letters(self, word):
+        """Removes letters that are in the submitted word for the player's hand
+        
+        Args:
+            word (str): the word the player submitted
+        Author:
+            Ou
+        """
+        for letter in word.upper():
+            self.hand.remove(letter)
 
 #class for the die
 class Die:
