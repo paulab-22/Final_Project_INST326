@@ -139,16 +139,15 @@ class ScoringSystem:
     
     def calculate_turn_score(self, words):
         """calculates score for the turn
-        Algorithm skeleton
+        Args:
+            word (str): the word for scoring
+        Returns:
+            total_score (int): the score for the player
         """
         total_score = 0
-    
-        #1 loop through word
-        #2 calculate score total based on letter values
-        #3 length multiplier
-        #4 add calculated turn score to total
-        pass
-    
+        for word in words:
+            total_score += self.calculate_word(word)
+        return total_score
 
 class Game:
     def __init__(self):
@@ -157,9 +156,6 @@ class Game:
     def setup_players(self):
         pass
     def play_turn(self):
-            while round <= 10:
-                round += 1
-            else:
                 pass
     def play(self):
         pass
