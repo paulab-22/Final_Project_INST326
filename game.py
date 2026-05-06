@@ -12,11 +12,17 @@ class Player:
         self.score = 0
         self.hand = []
     def add_letter(self, letter):
-        pass
+        """Adds a letter to the player's hand
+        Args:
+            letter (str): the letter being added
+        Author: Ou
+        """
+        
+        self.hand.append(letter)
     
     def has_letters(self, word):
         """Checks if the player has the letters for a word
-        Sirts the hand and the word, and then checks to see if the letters match
+        Sorts the hand and the word, and then checks to see if the letters match
         
         Args:
             word (str): the word thats being checked
@@ -35,7 +41,8 @@ class Player:
                 j += 1
             i += 1
         return j == len(temp_word)
-        
+    
+
 
 #class for the die
 class Die:
