@@ -200,14 +200,7 @@ class WordManager:
             return False
         return True
             
-        
-def main():
-    game = Game()
-    game.play()
-    
-if __name__ == "__main__":
-    main()
-    
+
 
 # Starting the game
 
