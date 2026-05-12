@@ -242,6 +242,7 @@ class Game:
                 if word_manager.submit_word(player1, word1):
                     score = scorer.calculate_word(word1)
                     player1.score += score
+                    player1.remove_letters(word1)
                     print("Correct! Your score is:", score)
                 else:
                     print("Wrong word")
@@ -259,6 +260,7 @@ class Game:
                 if word_manager.submit_word(player2, word2):
                     score = scorer.calculate_word(word2)
                     player2.score += score
+                    player2.remove_letters(word2)
                     print("Correct! Score:", score)
                 else:
                     print("Invalid word.")
