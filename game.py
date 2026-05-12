@@ -11,14 +11,15 @@ class Player:
         self.name = name
         self.score = 0
         self.hand = []
+        self.max_letters = 10
     def add_letter(self, letter):
-        """Adds a letter to the player's hand
+        """Adds a letter to the player's hand and checks if hand is at max capacity
         Args:
             letter (str): the letter being added
         Author: Ou
         """
-        
-        self.hand.append(letter)
+        if len(self.hand) < self.max_letters:
+            self.hand.append(letter)
     
     def has_letters(self, word):
         """Checks if the player has the letters for a word
