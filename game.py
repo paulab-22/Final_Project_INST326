@@ -149,16 +149,6 @@ class ScoringSystem:
             total_score += self.calculate_word(word)
         return total_score
 
-class Game:
-    def __init__(self):
-        self.players = []
-        
-    def setup_players(self):
-        pass
-    def play_turn(self):
-                pass
-    def play(self):
-        pass
 
 class WordManager:
     def __init__(self):
@@ -277,3 +267,22 @@ for round_num in range(1, total_rounds + 1):
     print("\nScores:")
     print(player1.name + ":", player1.score)
     print(player2.name + ":", player2.score)
+
+class Game:
+    def __init__(self):
+        self.players = []
+        
+    def setup_players(self):
+        pass
+    def play_turn(self):
+        pass
+    def play(self):
+        pass
+    
+
+def main():
+    game = Game()
+    game.play()
+
+if __name__ == "__main__":
+    main()
