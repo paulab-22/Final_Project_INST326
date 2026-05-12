@@ -144,6 +144,8 @@ class ScoringSystem:
             word (str): the word for scoring
         Returns:
             total_score (int): the score for the player
+        Author:
+            Ou
         """
         total_score = 0
         for word in words:
