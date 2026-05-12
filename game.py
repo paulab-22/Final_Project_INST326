@@ -191,83 +191,7 @@ class WordManager:
         return True
             
 
-
 # Starting the game
-
-
-print("WELCOME TO MY WORDSMITH GAME")
-
-total_rounds = 10
-
-# creating players
-name_1 = input("Enter Player 1 name: ")
-name_2 = input("Enter Player 2 name: ")
-
-player1 = Player(name_1)
-player2 = Player(name_2)
- 
-# Score with die
-scorer = ScoringSystem()
-word_manager = WordManager()
-
-vowel_die = VowelDie()
-consonant_die = ConsonantDie()
-
-for _ in range(5):
-    player1.add_letter(random.choice([vowel_die.roll(), consonant_die.roll()]))
-    player2.add_letter(random.choice([vowel_die.roll(), consonant_die.roll()]))
-# rounds
-for round_num in range(1, total_rounds + 1):
-    print(f"\n-- ROUND --{round_num} ")
-
-# give letters to players
-    player1.add_letter(vowel_die.roll())
-    player1.add_letter(consonant_die.roll())
-    player2.add_letter(vowel_die.roll())
-    player2.add_letter(consonant_die.roll())
-
-    # player 1s turn
-    input("\n" + player1.name + ", press Enter to play")
-    print("Your letters:", player1.hand)
-    try:
-        word1 = inputimeout(prompt="Enter your word: ", timeout=10)
-        if word_manager.submit_word(player1, word1):
-            score = scorer.calculate_word(word1)
-            player1.score += score
-            print("Correct! Your score is:", score)
-        else:
-            print("Wrong word")
-    except TimeoutOccurred:
-        print("You are out of time")
-    print("\nScores:")
-    print(player1.name + ":", player1.score)
-    print(player2.name + ":", player2.score)
-    # player 2s turn
-    input("\n" + player2.name + ", press Enter to Play")
-    print("Your letters are:", player2.hand)
-
-    try:
-        word2 = inputimeout(prompt="Enter your word:", timeout=10)
-        if word_manager.submit_word(player2, word2):
-            score = scorer.calculate_word(word2)
-            player2.score += score
-            print("Correct! Score:", score)
-        else:
-            print("Invalid word.")
-    except TimeoutOccurred:
-        print("You are out of time")
-    
-        """ Tells player wether or not their word is correct 
-        and times the player in their round.
-    
-        
-        Author:
-            Goodwin
-        """
-    print("\nScores:")
-    print(player1.name + ":", player1.score)
-    print(player2.name + ":", player2.score)
-
 class Game:
     def __init__(self):
         self.players = []
@@ -277,7 +201,79 @@ class Game:
     def play_turn(self):
         pass
     def play(self):
-        pass
+        
+        print("WELCOME TO MY WORDSMITH GAME")
+
+        total_rounds = 10
+
+        # creating players
+        name_1 = input("Enter Player 1 name: ")
+        name_2 = input("Enter Player 2 name: ")
+
+        player1 = Player(name_1)
+        player2 = Player(name_2)
+        
+        # Score with die
+        scorer = ScoringSystem()
+        word_manager = WordManager()
+
+        vowel_die = VowelDie()
+        consonant_die = ConsonantDie()
+
+        for _ in range(5):
+            player1.add_letter(random.choice([vowel_die.roll(), consonant_die.roll()]))
+            player2.add_letter(random.choice([vowel_die.roll(), consonant_die.roll()]))
+        # rounds
+        for round_num in range(1, total_rounds + 1):
+            print(f"\n-- ROUND --{round_num} ")
+
+        # give letters to players
+            player1.add_letter(vowel_die.roll())
+            player1.add_letter(consonant_die.roll())
+            player2.add_letter(vowel_die.roll())
+            player2.add_letter(consonant_die.roll())
+
+            # player 1s turn
+            input("\n" + player1.name + ", press Enter to play")
+            print("Your letters:", player1.hand)
+            try:
+                word1 = inputimeout(prompt="Enter your word: ", timeout=10)
+                if word_manager.submit_word(player1, word1):
+                    score = scorer.calculate_word(word1)
+                    player1.score += score
+                    print("Correct! Your score is:", score)
+                else:
+                    print("Wrong word")
+            except TimeoutOccurred:
+                print("You are out of time")
+            print("\nScores:")
+            print(player1.name + ":", player1.score)
+            print(player2.name + ":", player2.score)
+            # player 2s turn
+            input("\n" + player2.name + ", press Enter to Play")
+            print("Your letters are:", player2.hand)
+
+            try:
+                word2 = inputimeout(prompt="Enter your word:", timeout=10)
+                if word_manager.submit_word(player2, word2):
+                    score = scorer.calculate_word(word2)
+                    player2.score += score
+                    print("Correct! Score:", score)
+                else:
+                    print("Invalid word.")
+            except TimeoutOccurred:
+                print("You are out of time")
+            
+                """ Tells player wether or not their word is correct 
+                and times the player in their round.
+            
+                
+                Author:
+                    Goodwin
+                """
+            print("\nScores:")
+            print(player1.name + ":", player1.score)
+            print(player2.name + ":", player2.score)
     
 
 def main():
