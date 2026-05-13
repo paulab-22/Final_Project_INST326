@@ -32,8 +32,8 @@ class Player:
         Author:
             Ou
         """
-        temp_hand = sorted(self.hand)
-        temp_word = sorted(word.upper())
+        temp_hand = sorted(self.hand, key=lambda x: x)
+        temp_word = sorted(word.upper(), key=lambda x:x)
         
         i = 0
         j = 0
