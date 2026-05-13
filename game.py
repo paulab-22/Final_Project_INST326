@@ -53,7 +53,7 @@ class Player:
         for letter in word.upper():
             self.hand.remove(letter)
             
-     def trash_letter(self, letter):
+    def trash_letter(self, letter):
         """Removes a chosen letter from the player's hand.
         Args:
             letter (str): the letter to discard
