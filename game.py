@@ -60,7 +60,7 @@ class Player:
         Returns:
             bool: True if letter was removed, False if not in hand
         Author:
-            [Your name]
+            Ojikutu
         """
         letter = letter.upper()
         if letter in self.hand:
@@ -78,7 +78,7 @@ class Player:
         Returns:
             str: the letter that was added
         Author:
-            [Your name]
+            Ojikutu
         Technique:
             Optional parameters - letter defaults to None for random
         """
