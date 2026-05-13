@@ -79,8 +79,6 @@ class Player:
             str: the letter that was added
         Author:
             Ojikutu
-        Technique:
-            Optional parameters - letter defaults to None for random
         """
         if letter is None:
             letter = random.choice([vowel_die.roll(), consonant_die.roll()])
@@ -233,11 +231,6 @@ class WordManager:
 class Game:
     def __init__(self):
         self.players = []
-        
-    def setup_players(self):
-        pass
-    def play_turn(self):
-        pass
     def play(self):
         
         print("WELCOME TO MY WORDSMITH GAME")
