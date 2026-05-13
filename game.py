@@ -52,6 +52,41 @@ class Player:
         """
         for letter in word.upper():
             self.hand.remove(letter)
+            
+     def trash_letter(self, letter):
+        """Removes a chosen letter from the player's hand.
+        Args:
+            letter (str): the letter to discard
+        Returns:
+            bool: True if letter was removed, False if not in hand
+        Author:
+            [Your name]
+        """
+        letter = letter.upper()
+        if letter in self.hand:
+            self.hand.remove(letter)
+            return True
+        return False
+        
+    def buy_letter(self, vowel_die, consonant_die, letter=None):
+        """Adds a letter to the player's hand, either chosen or random.
+        Args:
+            vowel_die (VowelDie): used to roll a random vowel
+            consonant_die (ConsonantDie): used to roll a random consonant
+            letter (str, optional): a specific letter to add. Defaults to
+                None, in which case a random letter is rolled.
+        Returns:
+            str: the letter that was added
+        Author:
+            [Your name]
+        Technique:
+            Optional parameters - letter defaults to None for random
+        """
+        if letter is None:
+            letter = random.choice([vowel_die.roll(), consonant_die.roll()])
+        letter = letter.upper()
+        self.add_letter(letter)
+        return letter
 
 #class for the die
 class Die:
@@ -239,6 +274,14 @@ class Game:
             # player 1s turn
             input("\n" + player1.name + ", press Enter to play")
             print("Your letters:", player1.hand)
+            
+            trash = input("Trash a letter? Enter it or press Enter to skip: ")
+            if trash:
+                player1.trash_letter(trash)
+                bought = player1.buy_letter(vowel_die, consonant_die)
+                print(f"You discarded and drew: {bought}")
+                print("Your new letters:", player1.hand)
+                
             try:
                 word1 = inputimeout(prompt="Enter your word: ", timeout=10)
                 if word_manager.submit_word(player1, word1):
@@ -256,6 +299,12 @@ class Game:
             # player 2s turn
             input("\n" + player2.name + ", press Enter to Play")
             print("Your letters are:", player2.hand)
+            trash = input("Trash a letter? Enter it or press Enter to skip: ")
+            if trash:
+                player2.trash_letter(trash)
+                bought = player2.buy_letter(vowel_die, consonant_die)
+                print(f"You discarded and drew: {bought}")
+                print("Your new letters:", player2.hand)
 
             try:
                 word2 = inputimeout(prompt="Enter your word:", timeout=10)
