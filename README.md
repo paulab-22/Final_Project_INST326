@@ -137,16 +137,15 @@ Game constants and configuration (at the bottom of `wordsmith.py`):
 
 ---
 
-## Future Development
+## Attribution table
 
-The following components are currently skeleton implementations and require completion:
-- `Die.roll()`: Implement random selection from available letters
-- `Player.add_letter()`: Implement letter addition to player hand
-- `Game.setup_players()`: Initialize players based on user input
-- `Game.play_turn()`: Implement turn logic with word submission and scoring
-- `Game.play()`: Implement 10-round game loop
-- `ScoringSystem.calculate_turn_score()`: Implement aggregate scoring for multiple words
-
+| Method/Function | Primary Author | Technique Claimed |
+|---|---|---|
+| `__init__`, `is_in_word_bank` | Paula Buitrago | 10. Use of `super()`<br>15. Filtering on pandas DataFrame |
+| `Player` and `inputimeout` class | Zachary Goodwin | 11. Composition |
+| `buy_letter` & `trash_letter` | Nimisokan Ojikutu | 2. Optional parameters |
+| `Player.has_letters` | Riley Ou | 9. Key function with `sorted()` |
+| display/game loop | Zachary Goodwin | 3. F-strings containing expressions |
 ---
 
 ## How to Run
